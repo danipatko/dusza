@@ -81,7 +81,7 @@ namespace Dusza {
             WTF(new TaskSix { Measures = Measures }.Solve(Distances).ToArray());
             WTF(new TaskSeven { Measures = Measures, MeasureDistances = Distances }.Solve().ToArray());
             WTF(new TaskEight { Measures = Measures }.Solve());
-            WTF( new TaskNine { Measures = Measures }.Solve().ToArray());
+            WTF(new TaskNine { Measures = Measures }.Solve().ToArray());
 
             Console.ReadKey();
         }

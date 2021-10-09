@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace Dusza {
     class TaskTwo {
@@ -25,8 +24,7 @@ namespace Dusza {
             List<string> sol = new List<string>();
 
             foreach (var Measure in Measures)
-                if (Measure.ID == 'B' && Shared.ExceededSpeedLimit(Measure))
-                {
+                if (Measure.ID == 'B' && Shared.ExceededSpeedLimit(Measure)) {
                     string str = $"{Measure.Type} {Measure.Region} {Measure.License} {ExceedSpeedLimitBy(Measure)}";
                     sol.Add(str);
                     Console.WriteLine(str);
