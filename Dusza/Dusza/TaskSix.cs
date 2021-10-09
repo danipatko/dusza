@@ -20,17 +20,17 @@ namespace Dusza
         public List<Measure> Measures;
         public void Solve(int[] distances)
         {
-            int[] Distances = distances;
+            int[] Distances = distances; //the distances of the traffipaxes
             List<Speeder> AvgSpeeders = new List<Speeder>();
             int Distance = 0;
-            for (int i = 0; i < Measures.Count()-1; i++)
+            for (int i = 0; i < Measures.Count()-1; i++) //these 2 fors go through the list checking if a car went through at least two traffipaxes
             {
                 for (int j = i+1; j < Measures.Count(); j++)
                 {
-                    if (Measures[j].License == Measures[i].License && ((Measures[i].ID == 'A' && Measures[j].ID == 'B') || (Measures[i].ID == 'B' && Measures[j].ID == 'C')))
+                    if (Measures[j].License == Measures[i].License && ((Measures[i].ID == 'A' && Measures[j].ID == 'B') || (Measures[i].ID == 'B' && Measures[j].ID == 'C')) && Measures[i].Type == "sz") //this checks if a car went through a second/third traffipax and if those traffipaxes are next to each other
                     {
-                        TimeSpan TimeDifference = Measures[j].Time - Measures[i].Time;
-                        switch (Measures[j].ID)
+                        TimeSpan TimeDifference = Measures[j].Time - Measures[i].Time; //this is the time it took the car to reach the next traffipax
+                        switch (Measures[j].ID) //the distance between the two traffipaxes
                         {
                             case 'B':
                                 Distance = Distances[1] - Distances[0];
@@ -39,15 +39,18 @@ namespace Dusza
                                 Distance = Distances[2] - Distances[1];
                                 break;
                         }
-                        int AvarageSpeed = (int)(Distance*1000 / (int)TimeDifference.TotalSeconds * 3.6);
-                        AvgSpeeders.Add(new Speeder
+                        int AvarageSpeed = (int)(Distance*1000 / (int)TimeDifference.TotalSeconds * 3.6); //the cars avarage speed calculated with v=s/t
+                        if (AvarageSpeed > 130) //checks if the avarage speed is greater than the maximum speed it can go with
                         {
-                            Region = Measures[i].Region,
-                            License = Measures[i].License,
-                            ID1 = Measures[i].ID,
-                            ID2 = Measures[j].ID,
-                            AvgSpeed = AvarageSpeed
-                        });
+                            AvgSpeeders.Add(new Speeder
+                            {
+                                Region = Measures[i].Region,
+                                License = Measures[i].License,
+                                ID1 = Measures[i].ID,
+                                ID2 = Measures[j].ID,
+                                AvgSpeed = AvarageSpeed
+                            });
+                        }                        
                     }
                 }
             }
