@@ -56,6 +56,7 @@ namespace Dusza
             Console.WriteLine();
 
             new TaskOne { Measures = Measures }.Solve();
+            new TaskTwo { Measures = Measures }.Solve();
 
             Console.ReadKey();
         }
