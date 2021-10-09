@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Dusza.Measure;
 using System.Text.RegularExpressions;
 
-namespace Dusza
-{
-    class TaskNine
-    {
+namespace Dusza {
+    class TaskNine {
         public List<Measure> Measures;
 
-        public IEnumerable<string> GetInvalidHungarianLicenses()
-        {
+        public IEnumerable<string> GetInvalidHungarianLicenses() {
             // First 3 characters match A-Z, followed by a - and 3 digits
             Regex MatchHungarianLicense = new Regex(@"^[A-Z]{3}-\d{3}$");
             // Iterate through measures, return invalid ones
@@ -22,13 +16,12 @@ namespace Dusza
                     yield return this.Measures[i].License;
         }
 
-        public void Solve()
-        {
+        public void Solve() {
             string[] InvalidHungarianLicenses = GetInvalidHungarianLicenses().ToArray();
             // Print out solution
             foreach (string InvalidLicense in InvalidHungarianLicenses)
                 Console.WriteLine(InvalidLicense);
-            
+
         }
     }
 }

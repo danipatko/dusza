@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.Globalization;
+using System.IO;
+using System.Linq;
 
-namespace Dusza
-{
+namespace Dusza {
     class Shared {
         // contains all the relevant speed limits
         public enum SpeedLimits : int {
@@ -31,8 +28,7 @@ namespace Dusza
         }
     }
 
-    class Measure
-    {
+    class Measure {
         public string Region;
         public string License;
         public char ID;
@@ -41,18 +37,14 @@ namespace Dusza
         public DateTime Time;
     }
 
-    class Program
-    {
-        static void PrintMeasures(List<Measure> Measures)
-        {
-            for (int i = 0; i < Measures.Count; i++)
-            {
+    class Program {
+        static void PrintMeasures(List<Measure> Measures) {
+            for (int i = 0; i < Measures.Count; i++) {
                 Console.WriteLine($"Region:{Measures[i].Region} License:{Measures[i].License} ID:{Measures[i].ID} Type:{Measures[i].Type} Speed:{Measures[i].Speed} Time:{Measures[i].Time} ");
             }
         }
 
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             // Read file contents and split then into lines
             string[] FileContents = File.ReadAllLines("D22.txt");
             int[] Distances = FileContents[0].Split(',').Select(x => int.Parse(x)).ToArray();
@@ -60,11 +52,9 @@ namespace Dusza
             // Convert lines to Measure objects and add them to the Measures list
             List<Measure> Measures = new List<Measure>();
             string[] Line;
-            for (int i = 1; i < FileContents.Length; i++)
-            {
+            for (int i = 1; i < FileContents.Length; i++) {
                 Line = FileContents[i].Split(',');
-                Measures.Add(new Measure
-                {
+                Measures.Add(new Measure {
                     Region = Line[0],
                     License = Line[1],
                     ID = Line[2][0],
