@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Globalization;
+using static Dusza.LastTask;
 
 namespace Dusza
 {
@@ -55,10 +56,13 @@ namespace Dusza
             PrintMeasures(Measures);
             Console.WriteLine();
 
+            // Tasks
             new TaskOne { Measures = Measures }.Solve();
             new TaskTwo { Measures = Measures }.Solve();
+            new LastTask { Measures = Measures }.Solve();
 
             Console.ReadKey();
+
         }
     }
 }
