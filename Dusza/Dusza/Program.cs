@@ -8,6 +8,29 @@ using System.Globalization;
 
 namespace Dusza
 {
+    class Shared {
+        // contains all the relevant speed limits
+        public enum SpeedLimits : int {
+            sz = 130, m = 130, b = 100, t = 80
+        }
+
+        public static bool ExceededSpeedLimit(Measure _Measure) {
+            // Compare different types with their speed limits
+            switch (_Measure.Type) {
+                case "sz":
+                    return _Measure.Speed > (int)SpeedLimits.sz;
+                case "m":
+                    return _Measure.Speed > (int)SpeedLimits.m;
+                case "b":
+                    return _Measure.Speed > (int)SpeedLimits.b;
+                case "t":
+                    return _Measure.Speed > (int)SpeedLimits.t;
+                default:
+                    return false;  // mk is default
+            }
+        }
+    }
+
     class Measure
     {
         public string Region;
@@ -61,6 +84,7 @@ namespace Dusza
             new TaskFour { Measures = Measures }.Solve();
             new TaskFive { Measures = Measures }.Solve();
             new TaskSix { Measures = Measures }.Solve(Distances);
+            new TaskThree { Measures = Measures }.Solve();
             new TaskSeven { Measures = Measures, MeasureDistances = Distances }.Solve();
             new TaskEight { Measures = Measures }.Solve();
             new LastTask { Measures = Measures }.Solve();
