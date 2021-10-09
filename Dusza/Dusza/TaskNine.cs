@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace Dusza
 {
-    class LastTask
+    class TaskNine
     {
         public List<Measure> Measures;
 
