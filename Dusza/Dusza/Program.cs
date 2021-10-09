@@ -54,6 +54,8 @@ namespace Dusza
             // print shit
             PrintMeasures(Measures);
 
+            //6
+            new TaskSix { Measures = Measures }.Solve(Distances);
         }
     }
 }
