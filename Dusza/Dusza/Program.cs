@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Globalization;
+using static Dusza.TaskFour;
+using static Dusza.TaskFive;
 
 namespace Dusza
 {
@@ -54,6 +56,11 @@ namespace Dusza
             // print shit
             PrintMeasures(Measures);
 
+            //4
+            new TaskFour { Measures = Measures }.Solve();
+
+            //5
+            new TaskFive { Measures = Measures }.Solve();
         }
     }
 }
