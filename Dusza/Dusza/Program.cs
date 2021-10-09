@@ -53,7 +53,11 @@ namespace Dusza
 
             // print shit
             PrintMeasures(Measures);
+            Console.WriteLine();
 
+            new TaskOne { Measures = Measures }.Solve();
+
+            Console.ReadKey();
         }
     }
 }
