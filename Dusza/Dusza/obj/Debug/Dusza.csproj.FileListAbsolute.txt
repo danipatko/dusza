@@ -1,7 +1,0 @@
-C:\Users\p8dan\Desktop\dusza\dusza\Dusza\Dusza\bin\Debug\Dusza.exe.config
-C:\Users\p8dan\Desktop\dusza\dusza\Dusza\Dusza\bin\Debug\Dusza.exe
-C:\Users\p8dan\Desktop\dusza\dusza\Dusza\Dusza\bin\Debug\Dusza.pdb
-C:\Users\p8dan\Desktop\dusza\dusza\Dusza\Dusza\obj\Debug\Dusza.csproj.AssemblyReference.cache
-C:\Users\p8dan\Desktop\dusza\dusza\Dusza\Dusza\obj\Debug\Dusza.csproj.CoreCompileInputs.cache
-C:\Users\p8dan\Desktop\dusza\dusza\Dusza\Dusza\obj\Debug\Dusza.exe
-C:\Users\p8dan\Desktop\dusza\dusza\Dusza\Dusza\obj\Debug\Dusza.pdb
