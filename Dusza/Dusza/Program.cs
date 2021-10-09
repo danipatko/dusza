@@ -55,6 +55,8 @@ namespace Dusza
             // print shit
             PrintMeasures(Measures);
 
+            //5
+            new TaskFive { Measures = Measures }.Solve();
         }
     }
 }
