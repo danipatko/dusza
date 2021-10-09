@@ -60,6 +60,7 @@ namespace Dusza
             new TaskTwo { Measures = Measures }.Solve();
             new TaskFour { Measures = Measures }.Solve();
             new TaskFive { Measures = Measures }.Solve();
+            new TaskSix { Measures = Measures }.Solve(Distances);
             new TaskSeven { Measures = Measures, MeasureDistances = Distances }.Solve();
             new TaskEight { Measures = Measures }.Solve();
             new LastTask { Measures = Measures }.Solve();
