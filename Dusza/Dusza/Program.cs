@@ -58,12 +58,12 @@ namespace Dusza
             // Tasks
             new TaskOne { Measures = Measures }.Solve();
             new TaskTwo { Measures = Measures }.Solve();
+            new TaskFour { Measures = Measures }.Solve();
             new TaskSeven { Measures = Measures, MeasureDistances = Distances }.Solve();
             new TaskEight { Measures = Measures }.Solve();
             new LastTask { Measures = Measures }.Solve();
 
             Console.ReadKey();
-
         }
     }
 }
