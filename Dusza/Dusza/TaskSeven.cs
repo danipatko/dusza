@@ -41,10 +41,11 @@ namespace Dusza {
                 .Select(x => $"{ (ExceededSpeedLimit(x.ToArray()[0].Type, AverageSpeed(x.Select(y => y.Time).ToArray())) ? "nem" : "igen") } {x.ToArray()[0].Region} {x.Key}").ToArray();
         }
 
-        public void Solve() {
-            foreach (var item in VehiclesAtAllPoints())
+        public IEnumerable<string> Solve() {
+            foreach (var item in VehiclesAtAllPoints()) {
                 Console.WriteLine(item);
-
+                yield return item;
+            }
         }
     }
 }

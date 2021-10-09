@@ -10,7 +10,7 @@ namespace Dusza {
             public int Speed;
             public DateTime Time;
         }
-        public void Solve() {
+        public IEnumerable<string> Solve() {
             List<Speeder> Speeders = new List<Speeder>();
             DateTime UpperBorder = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 13, 0, 0); //the end of the roadworks 
             foreach (var item in Measures) //goes through the input list and checks if the ID is "C", the time is between the start and the end of the roadworks, the type is "személygépjármű" and if the car was going more than 110 km/h 
@@ -26,8 +26,9 @@ namespace Dusza {
             }
             foreach (var item in Speeders) //the output
             {
-                Console.Write($"{item.Region} {item.License} {item.Speed} {item.Time.Hour}:{item.Time.Minute}:{item.Time.Second}");
-                Console.WriteLine();
+                string str = $"{item.Region} {item.License} {item.Speed} {item.Time.Hour}:{item.Time.Minute}:{item.Time.Second}";
+                Console.WriteLine(str);
+                yield return str;
             }
         }
     }

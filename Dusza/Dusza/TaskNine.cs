@@ -16,12 +16,12 @@ namespace Dusza {
                     yield return this.Measures[i].License;
         }
 
-        public void Solve() {
-            string[] InvalidHungarianLicenses = GetInvalidHungarianLicenses().ToArray();
+        public IEnumerable<string> Solve() {
             // Print out solution
-            foreach (string InvalidLicense in InvalidHungarianLicenses)
+            foreach (string InvalidLicense in GetInvalidHungarianLicenses().ToArray()) {
                 Console.WriteLine(InvalidLicense);
-
+                yield return InvalidLicense;
+            }
         }
     }
 }

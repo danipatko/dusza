@@ -21,17 +21,18 @@ namespace Dusza {
             }
         }
 
-        public void Solve() {
-            string sol = "";
+        public string[] Solve() {
+            List<string> sol = new List<string>();
 
             foreach (var Measure in Measures)
                 if (Measure.ID == 'B' && Shared.ExceededSpeedLimit(Measure))
-                    sol += $"{Measure.Type} {Measure.Region} {Measure.License} {ExceedSpeedLimitBy(Measure)}" + Environment.NewLine;
+                {
+                    string str = $"{Measure.Type} {Measure.Region} {Measure.License} {ExceedSpeedLimitBy(Measure)}";
+                    sol.Add(str);
+                    Console.WriteLine(str);
+                }
 
-            sol = sol.Trim();
-
-            Console.WriteLine(sol);
-            File.WriteAllText("TaskTwo.txt", sol);
+            return sol.ToArray();
         }
     }
 }

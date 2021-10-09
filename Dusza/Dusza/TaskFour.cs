@@ -6,7 +6,7 @@ namespace Dusza {
     class TaskFour {
         public List<Measure> Measures;
 
-        public void Solve() {
+        public string[] Solve() {
             List<string> Plates = new List<string>();
             //goes through the input file and checks if the region is "H" and if the Plates list contains it
             for (int i = 0; i < Measures.Count(); i++) {
@@ -16,6 +16,8 @@ namespace Dusza {
             }
             //the answer
             Console.WriteLine(Plates.Count());
+
+            return new string[] { Plates.Count().ToString() };
         }
     }
 }

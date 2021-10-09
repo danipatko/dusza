@@ -6,7 +6,7 @@ namespace Dusza {
     class TaskOne {
         public List<Measure> Measures;
 
-        public void Solve() {
+        public string[] Solve() {
             int n = 0;
 
             foreach (var Measure in Measures)
@@ -15,6 +15,7 @@ namespace Dusza {
 
             Console.WriteLine(n);
             File.WriteAllText("TaskOne.txt", $"{n}");
+            return new string[] { n.ToString() };
         }
     }
 }

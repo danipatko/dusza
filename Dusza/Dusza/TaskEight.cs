@@ -22,10 +22,11 @@ namespace Dusza {
             return Exists ?? "nem_szerepel";
         }
 
-        public void Solve() {
+        public string[] Solve() {
             string InvalidLicense = Console.ReadLine();
-
-            Console.WriteLine(Result(InvalidLicense.Trim()));
+            string str = Result(InvalidLicense.Trim());
+            Console.WriteLine(str);
+            return new string[] { str };
         }
     }
 }

@@ -43,6 +43,10 @@ namespace Dusza {
                 Console.WriteLine($"Region:{Measures[i].Region} License:{Measures[i].License} ID:{Measures[i].ID} Type:{Measures[i].Type} Speed:{Measures[i].Speed} Time:{Measures[i].Time} ");
             }
         }
+        // write to file
+        static void WTF(string[] Lines) {
+            File.AppendAllLines("ValaszD22.txt", Lines);
+        }
 
         static void Main(string[] args) {
             // Read file contents and split then into lines
@@ -69,15 +73,15 @@ namespace Dusza {
             Console.WriteLine();
 
             // Tasks
-            new TaskOne { Measures = Measures }.Solve();
-            new TaskTwo { Measures = Measures }.Solve();
-            new TaskThree { Measures = Measures }.Solve();
-            new TaskFour { Measures = Measures }.Solve();
-            new TaskFive { Measures = Measures }.Solve();
-            new TaskSix { Measures = Measures }.Solve(Distances);
-            new TaskSeven { Measures = Measures, MeasureDistances = Distances }.Solve();
-            new TaskEight { Measures = Measures }.Solve();
-            new TaskNine { Measures = Measures }.Solve();
+            WTF(new TaskOne { Measures = Measures }.Solve());
+            WTF(new TaskTwo { Measures = Measures }.Solve());
+            WTF(new TaskThree { Measures = Measures }.Solve());
+            WTF(new TaskFour { Measures = Measures }.Solve());
+            WTF(new TaskFive { Measures = Measures }.Solve().ToArray());
+            WTF(new TaskSix { Measures = Measures }.Solve(Distances).ToArray());
+            WTF(new TaskSeven { Measures = Measures, MeasureDistances = Distances }.Solve().ToArray());
+            WTF(new TaskEight { Measures = Measures }.Solve());
+            WTF( new TaskNine { Measures = Measures }.Solve().ToArray());
 
             Console.ReadKey();
         }

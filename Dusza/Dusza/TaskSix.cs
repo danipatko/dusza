@@ -12,7 +12,7 @@ namespace Dusza {
             public int AvgSpeed;
         }
         public List<Measure> Measures;
-        public void Solve(int[] distances) {
+        public IEnumerable<string> Solve(int[] distances) {
             int[] Distances = distances; //the distances of the traffipaxes
             List<Speeder> AvgSpeeders = new List<Speeder>();
             int Distance = 0;
@@ -46,8 +46,9 @@ namespace Dusza {
                 }
             }
             foreach (var item in AvgSpeeders) {
-                Console.Write($"{item.Region} {item.License} {item.ID1} {item.ID2} {item.AvgSpeed}");
-                Console.WriteLine();
+                string str = $"{item.Region} {item.License} {item.ID1} {item.ID2} {item.AvgSpeed}";
+                Console.WriteLine(str);
+                yield return str;
             }
         }
     }

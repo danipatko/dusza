@@ -15,18 +15,18 @@ namespace Dusza {
             return n;
         }
 
-        public void Solve() {
+        public string[] Solve() {
             int Fastest = FastestSpeed();
-            string sol = "";
+            List<string> sol = new List<string>();
 
             foreach (var Measure in Measures)
-                if (Measure.ID == 'C' && Measure.Speed == Fastest)
-                    sol += $"{Measure.Speed} {(Shared.ExceededSpeedLimit(Measure) ? "túllépte" : "nem_lépte_túl")} {Measure.Type} {Measure.Region} {Measure.License} {Measure.Time.ToString("HH:mm:ss")}" + Environment.NewLine;
+                if (Measure.ID == 'C' && Measure.Speed == Fastest) {
+                    string str = $"{Measure.Speed} {(Shared.ExceededSpeedLimit(Measure) ? "túllépte" : "nem_lépte_túl")} {Measure.Type} {Measure.Region} {Measure.License} {Measure.Time.ToString("HH:mm:ss")}";
+                    sol.Add(str);
+                    Console.WriteLine(str);
+                }
 
-
-            sol = sol.Trim();
-
-            Console.WriteLine(sol);
+            return sol.ToArray();
         }
     }
 }
